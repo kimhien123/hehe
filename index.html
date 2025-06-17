@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>đoán xem cái nì là gì 💖</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    h1 {
+      color: #ff4d88;
+      font-size: 36px;
+    }
+
+    #question {
+      font-size: 24px;
+      margin: 30px 0;
+      color: #ff66a3;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #ff80bf;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #cccccc;
+      color: #333;
+      position: absolute;
+    }
+
+    #message {
+      margin-top: 40px;
+      font-size: 24px;
+      color: #ff3385;
+      display: none;
+    }
+
+    .heart {
+      position: fixed;
+      color: #ff66a3;
+      animation: fly 2s ease-out forwards;
+      font-size: 24px;
+    }
+
+    @keyframes fly {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-300px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>He lu bé yêu 💌</h1>
+  <div id="question">Bé có chịu cho tui 500k khum? 😚</div>
+
+  <button id="yesBtn">Chịu 💕</button>
+  <button id="noBtn">Khônggg 😝</button>
+
+  <div id="message">Yêu bé nhìu lắmmmmm 💘💘💘</div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const message = document.getElementById('message');
+
+    function moveNoButton() {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 100);
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+    }
+
+    noBtn.addEventListener('mouseover', moveNoButton);
+
+    yesBtn.addEventListener('click', () => {
+      message.style.display = 'block';
+
+      // tạo tim bay
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.top = Math.random() * window.innerHeight + 'px';
+        heart.textContent = '💖';
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 2000);
+      }
+    });
+  </script>
+
+</body>
+</html>
